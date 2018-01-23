@@ -1,5 +1,5 @@
-
 package Messages;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,24 +7,25 @@ import java.util.List;
 
 /**
  *
- * @author Mohammed Muayad
+ * @author Kareem Lawal
  */
-public class Packet implements Serializable  {
-    private static final long serialVersionUID  = 1L;
+public class Packet implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private short type; //1-Authentication, 2-Text chat ,3-ReqSessionID 4-newChat  5-UpdatechatList, 6-UpdateOnLineLis, 7-FileTransfer, 8-Request Chat History, ....., 10-CloseConnecton
     private String data1;
     private String data2;
     private String clientID;
-    private  List <String> destIDList= new ArrayList<>();
+    private List<String> destIDList = new ArrayList<>();
     private String sessionID;
-    private byte[] file ;
-    private HashMap <String,String> onlineList = new HashMap<>();
+    private byte[] file;
+    private HashMap<String, String> onlineList = new HashMap<>();
     private boolean addToList;
     private boolean createFileSocket;
     private int publicKey;
 
     public Packet() {
-        
+
     }
 
     public boolean isCreateFileSocket() {
@@ -34,8 +35,8 @@ public class Packet implements Serializable  {
     public void setCreateFileSocket(boolean createFileSocket) {
         this.createFileSocket = createFileSocket;
     }
-    
-    public Packet(short type, String data1, String data2, String clientID, List <String> destID) {
+
+    public Packet(short type, String data1, String data2, String clientID, List<String> destID) {
         this.type = type;
         this.data1 = data1;
         this.data2 = data2;
@@ -96,7 +97,7 @@ public class Packet implements Serializable  {
     }
 
     public void setDestIDList(List<String> destIDList) {
-        for (String userID : destIDList){
+        for (String userID : destIDList) {
             this.destIDList.add(userID);
         }
     }
@@ -124,22 +125,19 @@ public class Packet implements Serializable  {
     public void setOnlineList(HashMap<String, String> onlineList) {
         this.onlineList = onlineList;
     }
-    
-        
-    public void addDestID (String item){// add ID
+
+    public void addDestID(String item) {// add ID
         destIDList.add(item);
 
     }
-    public void removeDestId(String ID){// remoce a certain ID from the list
-        for(int i=0 ;i<destIDList.size();i++){
-            if(destIDList.get(i).equals(ID)){
+
+    public void removeDestId(String ID) {// remoce a certain ID from the list
+        for (int i = 0; i < destIDList.size(); i++) {
+            if (destIDList.get(i).equals(ID)) {
                 destIDList.remove(i);
                 return;
             }
         }
     }
 
-
-
-    
 }
