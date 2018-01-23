@@ -1,0 +1,1 @@
+The secure chat application was designed in NetBeans using Java Programming Language. The User Interfaces were designed using java swing and It uses Java Database Connectivity (JDBC) API to interact with its SQLite Database 
